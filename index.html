@@ -3,25 +3,35 @@
 <head>
 	<script src="js/handlebars-v1.3.0.js"></script>
 	<script src="js/jquery-1.11.1.min.js"></script>
+	<style>
+	.todo-title {
+		margin-bottom: 10px;
+	}
+	.text-list{
+	 margin-bottom: 5px;
+	} 
+	</style>
 </head>
 <body>
 <div class="todo-title">
 	<form>
 		Private<input type="checkbox" id="check">
-		<input type="data" placeholder="new Todo" id="todo-input">
+		<input type="text" placeholder="New Todo" id="todo-input">
 		<input type="button" value="Save" id="todo-button">
+		<input type="button" value="Clear" id="clear-button">
+		<input type="button" value="Clear Finished" id="finished-button">
 	</form>
 
 </div>
 <div class="todo-container">
 </div>
-<script id="todo-Script" type="text/x-handlebars">
-	{{each todo this}}
-	<div class="new-item-container">	
-		<input type="checkbox" class="check-list">
-		<input type="text" class="text-list" value="{{value}}" readonly>
-	</div>	
-	{{/each}}
+<script id="todo-Script" type="text/x-handlebars-template">
+		<div class="new-item-container">
+			{{#each todo}}	
+			<input type="checkbox" class="check-list">
+			<input type="text" class="text-list" value="{{this.value}}" readonly><br>
+			{{/each}}
+		</div>
 </script>
 <script src="js/main.js"></script>
 </body>
